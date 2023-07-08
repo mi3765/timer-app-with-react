@@ -8,9 +8,8 @@ function Timer() {
   const [seconds, setSeconds] = useState("00");
 
   let interval = useRef();
-
   const startTimer = () => {
-    const countDownDate = new Date("July 30, 2023 00:00:00").getTime();
+    const countDownDate = new Date("July 8, 2023 17:22:00").getTime();
 
     interval = setInterval(() => {
       const nowDate = new Date().getTime();
@@ -46,32 +45,40 @@ function Timer() {
       <div>
         <h2>Countdown Timer</h2>
       </div>
-      <div className="timer-contents">
-        <section>
-          <p className="timer-num">{days < 10 ? "0" + days : days}</p>
-          <p className="timer-content">
-            <small>Days</small>
-          </p>
-        </section>
-        <section>
-          <p className="timer-num">{hours < 10 ? "0" + hours : hours}</p>
-          <p className="timer-content">
-            <small>Hours</small>
-          </p>
-        </section>
-        <section>
-          <p className="timer-num">{minutes < 10 ? "0" + minutes : minutes}</p>
-          <p className="timer-content">
-            <small>Minutes</small>
-          </p>
-        </section>
-        <section>
-          <p className="timer-num">{seconds < 10 ? "0" + seconds : seconds}</p>
-          <p className="timer-content">
-            <small>Seconds</small>
-          </p>
-        </section>
-      </div>
+      {days === 0 && hours === 0 && minutes === 0 && seconds === 0 ? (
+        <div>時間切れです</div>
+      ) : (
+        <div className="timer-contents">
+          <section>
+            <p className="timer-num">{days < 10 ? "0" + days : days}</p>
+            <p className="timer-content">
+              <small>Days</small>
+            </p>
+          </section>
+          <section>
+            <p className="timer-num">{hours < 10 ? "0" + hours : hours}</p>
+            <p className="timer-content">
+              <small>Hours</small>
+            </p>
+          </section>
+          <section>
+            <p className="timer-num">
+              {minutes < 10 ? "0" + minutes : minutes}
+            </p>
+            <p className="timer-content">
+              <small>Minutes</small>
+            </p>
+          </section>
+          <section>
+            <p className="timer-num">
+              {seconds < 10 ? "0" + seconds : seconds}
+            </p>
+            <p className="timer-content">
+              <small>Seconds</small>
+            </p>
+          </section>
+        </div>
+      )}
     </div>
   );
 }
