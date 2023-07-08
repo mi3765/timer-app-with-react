@@ -1,15 +1,17 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Timer.css";
+import { useNavigate } from "react-router-dom";
 
 function Timer() {
   const [days, setDays] = useState("00");
   const [hours, setHours] = useState("00");
   const [minutes, setMinutes] = useState("00");
   const [seconds, setSeconds] = useState("00");
+  const navigate = useNavigate();
 
   let interval = useRef();
   const startTimer = () => {
-    const countDownDate = new Date("July 8, 2023 17:22:00").getTime();
+    const countDownDate = new Date().getTime();
 
     interval = setInterval(() => {
       const nowDate = new Date().getTime();
@@ -79,6 +81,7 @@ function Timer() {
           </section>
         </div>
       )}
+      <button onClick={() => navigate("/")}>return setTime</button>
     </div>
   );
 }
