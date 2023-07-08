@@ -1,0 +1,16 @@
+.timer-contents {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.timer-contents section .timer-num {
+    font-size: 64px;
+    margin-bottom: 0;
+}
+
+.timer-contents section .timer-content {
+    margin-top: 0;
+    font-size: 24px;
+}
